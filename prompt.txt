@@ -1,6 +1,6 @@
 Code completion task:
 
-Complete the partial Verilog RTL code in sources/fir_filter_dec2.v which implements an area-optimized 120-tap symmetric FIR filter with decimation by 3.
+Complete the partial Verilog RTL code in sources/fir_filter_symm_dec3.v which implements an area-optimized 120-tap symmetric FIR filter with decimation by 3.
 
 The FIR filter computes:
     y[n] = Σ h[k] * x[n-k]  for k = 0 to 119

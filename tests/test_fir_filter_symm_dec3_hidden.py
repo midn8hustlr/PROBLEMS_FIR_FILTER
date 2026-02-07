@@ -179,7 +179,7 @@ async def test_step_response_negative(dut):
     await _run_step_test(dut, step_value=-127, label="Test 2c")
 
 
-def test_fir_filter_dec2_runner():
+def test_fir_filter_symm_dec3_runner():
     """Pytest runner for cocotb tests."""
     import os
     from pathlib import Path
@@ -189,23 +189,23 @@ def test_fir_filter_dec2_runner():
     proj_path = Path(__file__).resolve().parent.parent
 
     sources = [
-        proj_path / "sources/fir_filter_dec2.v",
+        proj_path / "sources/fir_filter_symm_dec3.v",
     ]
 
     runner = get_runner(sim)
     runner.build(
         sources=sources,
-        hdl_toplevel="fir_filter_dec2",
+        hdl_toplevel="fir_filter_symm_dec3",
         always=True,
         waves=True
     )
 
     runner.test(
-        hdl_toplevel="fir_filter_dec2",
-        test_module="test_fir_filter_dec2_hidden",
+        hdl_toplevel="fir_filter_symm_dec3",
+        test_module="test_fir_filter_symm_dec3_hidden",
         waves=True
     )
 
 
 if __name__ == "__main__":
-    test_fir_filter_dec2_runner()
+    test_fir_filter_symm_dec3_runner()

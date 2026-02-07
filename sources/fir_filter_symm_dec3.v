@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module fir_filter_dec2 (
+module fir_filter_symm_dec3 (
     input  wire                 clk,
     input  wire                 rst_n,
     input  wire signed [7:0]    x_in,

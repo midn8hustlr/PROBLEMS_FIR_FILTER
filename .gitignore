@@ -1,0 +1,9 @@
+sim_build/
+sim/
+*.pyc
+__pycache__/
+.pytest_cache/
+.venv/
+uv.lock
+*.fst
+*.vcd

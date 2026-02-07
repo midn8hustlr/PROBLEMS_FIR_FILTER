@@ -1,0 +1,22 @@
+Code completion task:
+
+Complete the partial Verilog RTL code in sources/fir_filter_dec2.v which implements an area-optimized 120-tap symmetric FIR filter with decimation by 3.
+
+The FIR filter computes:
+    y[n] = Σ h[k] * x[n-k]  for k = 0 to 119
+
+The filter has **symmetric coefficients** (h[k] = h[119-k]), meaning only 60 unique coefficient values.
+
+Design requirements:
+- Exploit coefficient symmetry by **pre-adding symmetric sample pairs** before multiplication
+- Use **3-way polyphase decomposition** to handle decimation by 3
+- Use **time-domain multiplexing** with only **20 multipliers**
+- Compute 20 products per clock cycle, accumulate over 3 cycles to produce each output
+
+Reference materials:
+- docs/Specification.md - Background concepts on symmetric FIR and polyphase decomposition
+
+The RTL code should be synthesizable.
+The reset is active-low and asynchronous.
+
+**Important**: This environment uses Icarus Verilog for testing. Avoid using SystemVerilog Assertion (SVA) property/sequence syntax if adding assertions.
